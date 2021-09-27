@@ -1,0 +1,22 @@
+.container-fluid{
+
+    background-image: url('src/assets/images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    color:white;
+    text-align: center;
+}
+.page h1
+{
+    color:#ff5c33;
+    font-size:120px;
+    text-align:center;
+}
+.page h3
+{
+    color: white;
+    text-align:center;
+    font-size:80px;
+}
