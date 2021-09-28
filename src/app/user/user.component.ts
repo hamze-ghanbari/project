@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../classes/user.class';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user',
@@ -6,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
-  constructor() { }
+user : User= new User();
+id : number;
+  constructor(private activeRoute : ActivatedRoute,
+              private router : Router,
+              private  userservice : UserService) { }
 
   ngOnInit(): void {
+    this.id=+this.activeRoute.snapshot.params['id'];
+    this.userservice.get().subscribe(res => {
+    
+      this.user=res.find((user : any) => user.id === this.id)
+      if(!this.user){
+        this.router.navigate(['/notfound']);
+      } 
+    });
+  
   }
 
 }

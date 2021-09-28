@@ -16,5 +16,5 @@ data : User[];
 this.data=res;
     });
   }
-
+ 
 }
