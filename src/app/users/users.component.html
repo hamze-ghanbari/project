@@ -8,11 +8,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>MDQ6VXNlcjE=</td>
-        <td><a [routerLink]="['/user' , 1]">mojombo</a></td>
-        <td>user</td>
+      <tr *ngFor="let user of data">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.node_id}}</td>
+        <td><a [routerLink]="['/user' , user.id]">{{user.login}}</a></td>
+        <td>{{user.type}}</td>
       </tr>
      
     </tbody>
