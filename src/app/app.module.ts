@@ -9,7 +9,7 @@ import { UsersComponent } from './layout/users/users.component';
 import { UserComponent } from './layout/user/user.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './layout/not-found/not-found.component';
-import { MenuComponent } from 'src/share/menu/menu.component';
+//import { MenuComponent } from 'src/share/menu/menu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +18,7 @@ import { MenuComponent } from 'src/share/menu/menu.component';
     UserComponent,
     LoginComponent,
     NotFoundComponent,
-    MenuComponent
+   // MenuComponent
   ],
   imports: [
     BrowserModule,
