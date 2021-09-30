@@ -8,10 +8,13 @@ export class UserService {
   
   constructor(private http : HttpClient) { }
  
-  public get(){
+  public getAllUer(){
     return this.http.get<any>("https://api.github.com/users");
   }
 
+  public getUser(id : number){
+    return this.http.get<any>(`https://api.github.com/user/${id}`);
+  }
 
 }
  

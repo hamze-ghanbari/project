@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../classes/user.class';
-import { UserService } from '../user.service';
+import { User } from '../../classes/user.class';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -17,14 +17,16 @@ id : number;
 
   ngOnInit(): void {
     this.id=+this.activeRoute.snapshot.params['id'];
-    this.userservice.get().subscribe(res => {
+    // this.userservice.get().subscribe(res => {
     
-      this.user=res.find((user : any) => user.id === this.id)
-      if(!this.user){
-        this.router.navigate(['/notfound']);
-      } 
-    });
-  
+    //   this.user=res.find((user : any) => user.id === this.id)
+    //   if(!this.user){
+    //     this.router.navigate(['/notfound']);
+    //   } 
+    // });
+  this.userservice.getUser(this.id).subscribe(res =>{
+    this.user=res;
+  });
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../classes/user.class';
-import { UserService } from '../user.service';
+import { User } from 'src/app/classes/user.class';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-users',
@@ -12,7 +12,7 @@ data : User[];
   constructor(private userservice : UserService) { }
 
   ngOnInit(): void {
-     this.userservice.get().subscribe((res : any) =>{
+     this.userservice.getAllUer().subscribe((res : any) =>{
 this.data=res;
     });
   }
