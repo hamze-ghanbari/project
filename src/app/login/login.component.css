@@ -103,3 +103,6 @@
         text-decoration: none;
         text-align: right;
     }
+    input.ng-invalid.ng-touched{
+        border: 1px solid red;
+    }

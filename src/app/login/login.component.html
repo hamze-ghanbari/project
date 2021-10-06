@@ -5,24 +5,31 @@
         	    <div class="form-wrap">
                 <h1>Login</h1>
                 
-                    <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+                    <form (ngSubmit)="submitForm(loginform)" #loginform="ngForm" autocomplete="off">
                         <div class="form-group">
                             <label for="email" class="sr-only">Email</label>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com">
+                            <input type="email" name="email" ngModel #email="ngModel" required email class="form-control"  >
                         </div>
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <span class="text-danger" *ngIf="email.errors?.required || email.errors?.email ">وارد کردن ایمیل معتبر الزامی است</span>
+                    </div>
                         <div class="form-group">
-                            <label for="key" class="sr-only">Password</label>
-                            <input type="password" name="key" id="key" class="form-control" placeholder="Password">
+                            <label for="key" class="sr-only">UserName</label>
+                            <input type="text" name="username" #username="ngModel" ngModel required   class="form-control" >
+                        </div>
+                        <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                        <div class="text-danger" *ngIf="username.errors?.required">وارد کردن رمز عبور الزامی است</div>
+                    <!-- <div class="text-danger" *ngIf="password.errors?.minlength || password.errors?.maxlength ">رمز عبور باید بین 6 تا 8 کاراکتر باشد</div> -->
                         </div>
                        
-                        <input type="submit" id="btn-login" class="btn btn-custom   btn-block" value="Log in">
+                        <button type="submit" [disabled]="loginform.invalid" id="btn-login" class="btn btn-custom   btn-block"  >login</button>
                     </form>
                    
                     <hr>
                     <a [routerLink]="['/']" class="back">بازگشت به صفحه اصلی</a>
         	    </div>
-    		</div> <!-- /.col-xs-12 -->
-    	</div> <!-- /.row -->
-    </div> <!-- /.container -->
+    		</div> 
+    	</div>  
+    </div>  
 </section>
 

@@ -10,6 +10,7 @@ import { UserComponent } from './layout/user/user.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './layout/not-found/not-found.component';
  import { MenuComponent } from 'src/share/menu/menu.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { NotFoundComponent } from './layout/not-found/not-found.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],
