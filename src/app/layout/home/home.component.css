@@ -1,4 +1,4 @@
-*{
+  *{
 
     background-image: url('src/assets/images/background.jpg');
     background-size: cover;
@@ -11,4 +11,4 @@
 h1{
     font-size: 80px;
 line-height: 80vh;
-}
+}  

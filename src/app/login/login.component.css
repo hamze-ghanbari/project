@@ -95,3 +95,11 @@
     #footer a {
         color: inherit;
     }
+    .back{
+        color : red;
+        font-size: 12px;
+        font-weight: bold;
+        display: block;
+        text-decoration: none;
+        text-align: right;
+    }
