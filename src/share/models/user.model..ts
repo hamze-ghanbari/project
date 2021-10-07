@@ -6,7 +6,7 @@ export class User{
     email : string;
     phone : string;
     website : string;
-   address : address[];
+   address : address=new address();
     // login : string ;
     // id : number ;
     // node_id : string ;
