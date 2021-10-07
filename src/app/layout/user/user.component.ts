@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../../classes/user.class';
+import { address, User } from '../../classes/user.class';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { UserService } from '../../services/user.service';
 })
 export class UserComponent implements OnInit {
 user : User= new User();
+ 
 id : number;
   constructor(private activeRoute : ActivatedRoute,
               private router : Router,
