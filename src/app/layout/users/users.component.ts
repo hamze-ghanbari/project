@@ -15,6 +15,7 @@ data : User[];
   ngOnInit(): void {
      this.userservice.getAllUer().subscribe((res : any) =>{
     this.data=res;
+ 
     });
      
   }

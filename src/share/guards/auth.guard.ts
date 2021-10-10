@@ -12,14 +12,19 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return  this.loginservice.checkLogin()
-    .then((response : any) => {
-      if(response){
-         return true;
-      }else{
-        this.router.navigate(['/login']);
-      }
-    });
+    // return  this.loginservice.checkLogin()
+    if(localStorage.getItem('email') === 'Sincere@april.biz'){
+      return true;
+    }else{
+      this.router.navigate(['/login']);
+    }
+    // .then((response : any) => {
+    //   if(response){
+    //      return true;
+    //   }else{
+    //     this.router.navigate(['/login']);
+    //   }
+    // });
   }
   
 }

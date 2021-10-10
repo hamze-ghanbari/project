@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
@@ -12,14 +13,16 @@ export class MenuComponent implements OnInit {
   constructor(private loginservice : LoginService,private router : Router) { }
 showLink  : boolean = true;
   ngOnInit(): void {
-    if(this.loginservice.loggedIn){
+    if(localStorage.getItem('email') ==="Sincere@april.biz"){
       this.showLink=false;
+    }else{
+      this.showLink=true;
     }
   }
-
   public onLogout(event : Event){
     event.preventDefault();
-    this.loginservice.loggedIn=false;
+    // this.loginservice.loggedIn;
+    this.loginservice.logout();
     this.router.navigate(['/login']);
   }
 
