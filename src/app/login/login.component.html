@@ -18,7 +18,7 @@
                             <input type="text" name="username" #username="ngModel" ngModel required   class="form-control" >
                         </div>
                         <div *ngIf="username.invalid && (username.dirty || username.touched)">
-                        <div class="text-danger" *ngIf="username.errors?.required">وارد کردن رمز عبور الزامی است</div>
+                        <div class="text-danger" *ngIf="username.errors?.required">وارد کردن نام کاربری الزامی است</div>
                     <!-- <div class="text-danger" *ngIf="password.errors?.minlength || password.errors?.maxlength ">رمز عبور باید بین 6 تا 8 کاراکتر باشد</div> -->
                         </div>
                        
