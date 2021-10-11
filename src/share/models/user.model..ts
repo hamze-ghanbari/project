@@ -7,6 +7,7 @@ export class User{
     phone : string;
     website : string;
    address : address=new address();
+   company : company = new company();
     // login : string ;
     // id : number ;
     // node_id : string ;
@@ -26,10 +27,19 @@ export class User{
     // type : string ;
     // site_admin : boolean ;
 }
-export class address {
+ class address {
     street : string;
     suite : string;
     city : string;
     zipcode : string;
-
+    geo : geo = new geo();
 }
+  class geo{
+     lat : string;
+     lng : string;
+ }
+   class company{
+     name : string;
+     catchPhrase : string;
+     bs : string;
+ }
