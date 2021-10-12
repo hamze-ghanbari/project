@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   message : string;
   datauser : User[];
 
-  isLoggedIn = false;
+   isLoggedIn : boolean = false;
   isLoginFailed = false;
   //constructor(private loginservice : LoginService,private router : Router,private userservice : UserService) { }
 constructor(private authService: AuthService,
@@ -28,6 +28,7 @@ constructor(private authService: AuthService,
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
+      this.router.navigate(['/']);
       //this.roles = this.tokenStorage.getUser().roles;
     }
   }
@@ -37,10 +38,11 @@ this.userLogin=form.value;
   this.authService.login( this.userLogin.email, this.userLogin.username).subscribe(
     data => {
       this.tokenStorage.saveToken(data.accessToken);
-      this.tokenStorage.saveUser(data);
+      this.tokenStorage.saveUser(data.id);
 
       this.isLoginFailed = false;
       this.isLoggedIn = true;
+      this.router.navigate(['/']);
      // this.roles = this.tokenStorage.getUser().roles;
       //this.reloadPage();
     },
@@ -73,3 +75,7 @@ this.userLogin=form.value;
   //   // }
   // }
 }
+function input() {
+  throw new Error('Function not implemented.');
+}
+

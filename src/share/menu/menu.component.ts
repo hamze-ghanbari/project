@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
 
   constructor(private loginservice : LoginService,private router : Router,private token : TokenStorageService) { }
 showLink  : boolean = true;
+
   ngOnInit(): void {
     if(this.token.getToken()){
       this.showLink=false;

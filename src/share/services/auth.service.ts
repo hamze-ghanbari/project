@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { login } from '../models/login.models';
 
 const AUTH_API = 'https://jsonplaceholder.typicode.com/users';
 
