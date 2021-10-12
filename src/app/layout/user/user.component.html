@@ -7,7 +7,7 @@
  
         <div class="panel panel-info">
           <div class="panel-heading">
-            <h3 class="panel-title">{{user.name}}</h3>
+            <h3 class="panel-title">{{user.id}}</h3>
           </div>
           <div class="panel-body">
             <div class="row">
@@ -15,57 +15,83 @@
               
        
               <div class=" col-md-9 col-lg-9 "> 
+                <form (ngSubmit)="onEdit()" #editform="ngForm">
                 <table class="table table-user-information">
                   <tbody>
                     <tr>
-                      <td>id:</td>
-                      <td>{{user.id}}</td>
+                      <td>name:</td>
+                      <td><input type="text" name="name" ngModel [value]="user.name" /></td>
                     </tr>
                     <tr>
                       <td>username</td>
-                      <td>{{user.username}}</td>
-                    </tr>
-                 
-                       
-                           <tr>
+                      <td><input type="text" name="username" ngModel [value]="user.username" /></td>
+                    </tr>   
+                         <tr>
                       <td>email</td>
-                      <td>{{user.email}}</td>
-                    </tr>
-                        <tr>
-                      <td>street</td>
-                      <td>{{user.address.street}}</td>
+                      <td><input type="text" name="email" ngModel [value]="user.email" /></td>
                     </tr>
                     <tr>
+                      <td>phone</td>
+                      <td><input type="text" name="phone" ngModel [value]="user.phone" />
+                      </td>
+                         
+                    </tr>
+                    <tr>
+                      <td>website</td>
+                      <td><input type="text" name="website" [(ngModel)]="user.website" />
+                      </td>
+                    </tr>
+                      
+                    <tr>
                       <td>suite</td>
-                      <td>{{user.address.suite}}</td>
+                      <td><input type="text" name="suite" ngModel [value]="user.address.suite" /></td>
+                    </tr>
+                    <tr>
+                      <td>street</td>
+                      <td><input type="text" name="street" ngModel [value]="user.address.street" /></td>
                     </tr>
                     <tr>
                       <td>city</td>
-                      <td>{{user.address.city}}
+                      <td><input type="text" name="city" ngModel [value]="user.address.city" />
                       </td>
                          
                     </tr>
                     <tr>
                       <td>zipcode</td>
-                      <td>{{user.address.zipcode}}
+                      <td><input type="text" name="zipcode" ngModel [value]="user.address.zipcode" />
                       </td>
                          
                     </tr>  
-                   
+                    <tr>
+                      <td>lat</td>
+                      <td><input type="text" name="lat" ngModel [value]="user.address.geo.lat" />
+                      </td>
+                         
+                    </tr>
+                    <tr>
+                      <td>lng</td>
+                      <td><input type="text" name="lng" ngModel [value]="user.address.geo.lng" />
+                      </td>
+                         
+                    </tr>
                    
 
+                     
                       <tr>
-                        <td>phone</td>
-                        <td>{{user.phone}}
-                        </td>
-                           
-                      </tr>
-                      <tr>
-                        <td>website</td>
-                        <td>{{user.website}}
-                        </td>
-                      </tr>
-
+                      <td>company name</td>
+                      <td><input type="text" name="companyname" ngModel [value]="user.company.name" />
+                      </td>
+                    </tr>
+                    <tr>
+                    <td>catchPhrase </td>
+                    <td><input type="text" name="companycatchphrase" ngModel [value]="user.company.catchPhrase" />
+                    </td>
+                  </tr>
+                  <tr>
+                  <td>bs</td>
+                  <td><input type="text" name="companybs" ngModel [value]="user.company.bs" />
+                  </td>
+                </tr>
                       <!-- <tr>
                         <td>subscriptions_url</td>
                         <td>{{user.subscriptions_url}}
@@ -98,9 +124,9 @@
                       </tr> -->
                   </tbody>
                 </table>
-                
+                <button type="submit"  class="btn btn-success">edit profile</button>
+              </form>
               
-                <a href="#" class="btn btn-success">edit profile</a>
               </div>
             </div>
           </div>

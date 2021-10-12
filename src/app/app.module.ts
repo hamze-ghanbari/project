@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './layout/not-found/not-found.component';
  import { MenuComponent } from 'src/share/menu/menu.component';
 import { FormsModule } from '@angular/forms';
+ //import { error_handle } from 'src/share/error_handling/error_handle.class';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     UserComponent,
     LoginComponent,
     NotFoundComponent,
-    MenuComponent
+    MenuComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,9 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    //{provide: ErrorHandler, useClass: error_handle}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
