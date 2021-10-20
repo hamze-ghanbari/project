@@ -19,7 +19,11 @@ id : number;
               private  userservice : UserService) { }
 
   ngOnInit(): void {
-    this.id=+this.activeRoute.snapshot.params['id'];
+    // this.id=+this.activeRoute.snapshot.params['id'];
+this.id=+this.activeRoute.snapshot.paramMap.get('id');
+  //  this.activeRoute.queryParams.subscribe(param => {
+  //   this.id=param['id']
+  //  });
     // this.userservice.get().subscribe(res => {
     //   this.user=res.find((user : any) => user.id === this.id)
     //   if(!this.user){

@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 
 import { TokenStorageService } from './services/token-storage.service';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 const TOKEN_HEADER_KEY = 'Authorization';        
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+  router: any;
   constructor(private token: TokenStorageService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -17,7 +19,17 @@ export class AuthInterceptor implements HttpInterceptor {
     if (token != null) {
       authReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY,  token) });
     }
-    return next.handle(authReq);
+    return next.handle(authReq).pipe(
+      catchError(error =>{
+        if(error.status === 401){
+          alert('Access Denied');
+          // <Log the user out of your application code>
+          this.router.navigate([ 'login-page-route' ]);
+          return throwError(error);
+        }
+        return throwError(error);
+      })
+    );
   }
 }
 

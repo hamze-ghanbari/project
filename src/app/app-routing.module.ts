@@ -13,7 +13,7 @@ const routes: Routes = [
   {path : 'user/:id' , component : UserComponent , canActivate : [AuthGuard] },
   {path : 'login' , component : LoginComponent},
   {path : 'notfound' , component :NotFoundComponent },
-  {path : '**' , component : NotFoundComponent }
+  {path : '**' , redirectTo : 'notfound' ,pathMatch : 'full'}
 ];
 
 @NgModule({
